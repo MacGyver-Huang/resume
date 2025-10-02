@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跨領域工程師履歷</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Light background for contrast */
+        }
+        /* Custom Tailwind Style for Skill Tags */
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #e0f2f1; /* light teal */
+            color: #115e59; /* dark teal */
+            font-weight: 600;
+            cursor: default;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            background-color: #ccfbf1;
+        }
+
+        /* FINAL PRINT OPTIMIZATION: Maximize A4 usage */
+        @media print {
+            /* === 修正左右兩欄佈局 (START) === */
+            /* 1. 強制讓 main 成為 Grid 容器 */
+            main {
+                display: grid !important; 
+            }
+            /* 2. 強制設定為 5 欄佈局 */
+            .grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr)) !important; 
+            }
+            /* 3. 強制左右欄位的寬度 (覆寫 lg:col-span-3/2) */
+            .lg\:col-span-3 { 
+                grid-column: span 3 / span 3 !important; 
+            }
+            .lg\:col-span-2 { 
+                grid-column: span 2 / span 2 !important; 
+            }
+            /* === 修正左右兩欄佈局 (END) === */
+
+            body {
+                /* Extreme reduction of outer margin for A4 */
+                padding: 0.15cm !important; /* 再次微調外部邊距 */
+            }
+            .max-w-4xl {
+                max-width: 100%;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            /* Standardized internal padding for sections (tighter) */
+            .p-4, .p-6, .p-8 {
+                padding: 0.5rem !important; /* 進一步縮減區塊內邊距 */
+            }
+            .gap-6 {
+                gap: 1rem !important; /* 縮減欄位間距 */
+            }
+            .header-p {
+                padding: 0.8rem !important; /* 縮減 Header 內邊距 */
+            }
+            
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact; 
+                print-color-adjust: exact;
+            }
+            /* Force prevention of page breaks within important sections */
+            .page-break-avoid {
+                page-break-inside: avoid !important;
+            }
+            /* Ensure backgrounds (header, skill column) print */
+            header, .bg-gray-800, .bg-gray-50, .skill-tag {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            /* Further decrease font size for content density */
+            .text-sm, .text-base, .text-xs, .leading-relaxed, .leading-snug, li { 
+                font-size: 8.5pt !important; /* 核心內容字體調到 8.5pt */
+                line-height: 1.0 !important; /* 極度緊縮行高 */
+            }
+            .text-xl { font-size: 10.5pt !important; }
+            .text-2xl { font-size: 12.5pt !important; }
+            .text-4xl { font-size: 17pt !important; } /* Reduce header size */
+            .text-lg { font-size: 9.5pt !important; }
+            
+            /* 針對清單和間距進行更細微的調整 */
+            .space-y-05 { margin-bottom: 0.15rem !important; }
+            .space-y-1 { margin-bottom: 0.3rem !important; }
+
+            /* 隱藏 Footer 以爭取最後空間 */
+            footer {
+                display: none !important;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="p-4 sm:p-8">
+    <section class="page-break-avoid">
+        <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden">
+            
+            <!-- Header Section -->
+            <header class="bg-gray-800 text-white p-6 sm:p-8">
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2">
+                    黃羿棋（Yi-Chi, Huang）
+                </h1>
+                <p class="text-lg sm:text-xl font-light text-gray-300">
+                    太空系統工程碩士 | 跨領域軟韌體與平行運算工程師
+                </p>
+                <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm sm:text-base font-medium">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                        電子郵件：drograndrogran@gmail.com
+                    </span>
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 3.064a1 1 0 01-.61 1.101L4.82 9.467a1 1 0 00-.28 1.544l1.583 1.583a1 1 0 001.414 0l1.583-1.583a1 1 0 011.544-.28l3.41 1.18a1 1 0 011.102.61l.74 3.064a1 1 0 01-.986.836H17a1 1 0 001-1V3a1 1 0 00-1-1h-2.153a1 1 0 01-.986-.836l-.74-3.064a1 1 0 01.61-1.101L15.18 2.533a1 1 0 00.28-1.544l-1.583-1.583a1 1 0 00-1.414 0l-1.583 1.583a1 1 0 01-1.544.28l-3.41-1.18a1 1 0 01-1.102-.61l-.74-3.064A1 1 0 013 3v14a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1H3z"/></svg>
+                        連絡電話：0988249515
+                    </span>
+                    <!--
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm-5 8a5 5 0 1110 0 5 5 0 01-10 0z" clip-rule="evenodd"/></svg>
+                        [LinkedIn/作品集連結]
+                    </span>
+                    -->
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-5 gap-6">
+                
+                <!-- Column 1 & 2: Main Content (Summary, Education, Experience) -->
+                <div class="lg:col-span-3 space-y-5">
+                    
+                    <!-- Summary/Profile Section -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-700 border-b-2 border-indigo-500 pb-1 mb-3">
+                            個人簡介 / 核心優勢
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed text-base">
+                            <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1 font-small">
+                            我擁有國立雲林科技大學資訊工程系學士與國立臺北科技大學太空系統工程碩士學位，具備獨特的「軟體 x 系統」跨領域整合優勢使我能將紮實的程式開發與高效能運算能力，應用於複雜的太空系統分析與工程問題上。
+                            <br>
+                            我的碩士研究於蔣政諺教授研究室，專注於合成孔徑雷達 (SAR)，並曾在中央研究院林玉儂老師的研究室實習，在實習期間我學習到與跨國人士交流技術的機會並且與林玉儂老師共同在TSU中發表研究的初步結果。
+                            <br>
+                            這些經驗使我對立方衛星、姿態控制系統、合成孔徑雷達、無人機等前沿科技懷抱高度熱忱，渴望在太空科技、無人機技術或軟韌體產業貢獻價值。
+                            </ul>    
+                        </p>
+                    </section>
+
+                    <!-- Education Section -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-700 border-b-2 border-indigo-500 pb-1 mb-3">
+                            學歷背景
+                        </h2>
+                        <div class="space-y-4">
+                            <!-- NTUT -->
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800">國立臺北科技大學</h3>
+                                    <p class="text-indigo-600 font-medium whitespace-nowrap">太空系統工程 碩士</p>
+                                    <p class="text-sm text-gray-600 mt-1 whitespace-nowrap">
+                                        主要研究：合成孔徑雷達 (SAR) 相關研究
+                                    </p>
+                                </div>
+                                <p class="text-sm font-semibold text-gray-500">[2023/09] - [2025/07]</p>
+                            </div>
+                            <!-- YUNTECH -->
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800">國立雲林科技大學</h3>
+                                    <p class="text-indigo-600 font-medium whitespace-nowrap">資訊工程學系 學士</p>
+                                    <p class="text-sm text-gray-600 mt-1 whitespace-nowrap ">
+                                        主要學習：C/C++、Python 程式設計、資料結構與演算法
+                                    </p>
+                                </div>
+                                <p class="text-sm font-semibold text-gray-500 whitespace-nowrap">[2019/09] - [2023/06]</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Research & Experience Section -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-gray-700 border-b-2 border-indigo-500 pb-1 mb-3">
+                            研究與實務經驗
+                        </h2>
+                        <div class="space-y-6">
+                            <!-- Academia Sinica Internship -->
+                            <div class="border-l-4 border-indigo-500 pl-4">
+                                <h3 class="text-xl font-semibold text-gray-800">研究助理實習</h3>
+                                <p class="text-indigo-600 font-medium">中央研究院林玉儂研究室</p>
+                                <p class="text-sm text-gray-500 whitespace-nowrap">[2024/06] - [2024/08]</p>
+                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1 font-small">
+                                    <li>參與 [合成孔徑雷達模擬研究]，學習頂尖學術環境下的研究方法與流程。</li>
+                                    <li>負責 [修正模擬器與建立模擬場景並分析輸出結果]，培養獨立解決問題與團隊合作的能力。</li>
+                                </ul>
+                            </div>
+                            <!-- SAR Thesis -->
+                            <div class="border-l-4 border-indigo-500 pl-4">
+                                <h3 class="text-xl font-semibold text-gray-800">碩士論文/專題</h3>
+                                <p class="text-indigo-600 font-medium whitespace-nowrap">基於SAR模擬器地表與建築物的材質及方位影響之分析 (指導教授：蔣政諺教授、林玉儂博士)</p>
+                                <p class="text-sm text-gray-500 whitespace-nowrap">[2024/09] - [2025/07]</p>
+                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1 font-small">
+                                    <li>專注於模擬並分析不同地表介電常數、粗糙度與建築物方位角的訊號強度之影響。</li>
+                                    <li>應用CUDA與光線追蹤技術所製作之合成孔徑雷達模擬器進行模擬，並分析模擬結果。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Column 3: Skills -->
+                <div class="lg:col-span-2 space-y-8 bg-gray-50 p-6 rounded-lg">
+                    
+                    <!-- Technical Skills Section -->
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-700 border-b-2 border-gray-300 pb-1 mb-3">
+                            技術專長
+                        </h2>
+                        <div class="flex flex-wrap gap-2 text-sm">
+                            <span class="skill-tag">C / C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Linux/Git</span>
+                            <span class="skill-tag bg-indigo-100 text-indigo-700">NVIDIA CUDA (平行運算)</span>
+                            <span class="skill-tag">物聯網 (IoT)</span>
+                            <span class="skill-tag">合成孔徑雷達</span>
+                            <span class="skill-tag">Unity 引擎</span>
+                            <span class="skill-tag">嵌入式系統</span>
+                        </div>
+                    </section>
+
+                    <!-- Interest Areas -->
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-700 border-b-2 border-gray-300 pb-1 mb-3">
+                            感興趣與專長領域
+                        </h2>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>立方衛星系統整合</li>
+                            <li>姿態控制系統 (ADCS)</li>
+                            <li>合成孔徑雷達 (SAR) </li>
+                            <li>無人載具/無人機與應用 (UGV/UAV)</li>
+                            <li>邊緣計算與平行運算</li>
+                            <li>物聯網 (IoT) 系統設計</li>
+                            <li>資料庫系統設計與管理</li>
+                        </ul>
+                    </section>
+
+                    <!-- Project & Coursework -->
+                    <section>
+                        <h2 class="text-xl font-bold text-gray-700 border-b-2 border-gray-300 pb-1 mb-3">
+                            課程與專案經驗
+                        </h2>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>太空系統工程：系統工程於太空領域中之應用。</li>
+                            <li>無人機及無人載具應用：涵蓋控制理論與感測器應用。</li>
+                            <li>物聯網 (IoT)：具備感測器整合與資料分析能力。</li>
+                            <li>行動計算與邊緣運算：分散式系統設計與實作。</li>
+                            <li>高效能運算與平行處理：多線程處理與CUDA平行運算。</li>
+                            <li>資料結構與演算法：紮實的程式設計基礎。</li>
+                            <li>資料科學與機器學習基礎：數據分析與模型建立。</li>
+                            <li>UNITY 遊戲設計與開發：具備模擬與視覺化實作能力。</li>
+                        </ul>
+                    </section>
+
+                </div>
+            </main>
+            
+            <!-- Footer -->
+            <footer class="bg-gray-800 text-gray-400 text-center p-4 text-xs">
+                2025/10/02
+            </footer>
+
+        </div>
+    </section>
+</body>
+</html>
